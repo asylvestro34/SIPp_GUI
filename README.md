@@ -1,65 +1,76 @@
 # SIPp GUI
 
-A graphical user interface (GUI) for the SIPp performance testing tool, developed using Python and PyQt5. This tool aims to simplify the use of SIPp by providing a user-friendly interface for configuring and running SIP performance tests.
+A simple graphical user interface (GUI) for SIPp, allowing users to easily configure and execute SIP tests as either a client or server.
 
 ## Features
 
-- Easy selection of SIPp executable and scenario files
-- Input fields for target SIP server IP, number of calls, and call rate
-- Additional options for custom SIPp command-line parameters
-- One-click execution of SIPp tests
+- **Mode Selection**: Choose between Client and Server modes.
+- **Scenario File Selection**: Load SIP scenario files (XML format).
+- **SIPp Executable Path**: Browse and set the path to the SIPp executable, which is saved for future use.
+- **Dynamic Interface**: Automatically adjusts the interface based on the selected mode.
+- **Quality of Service (QoS)**: Specify QoS values using a dropdown for DSCP options.
+- **Call Configuration**: Set the number of calls and duration for the test.
 
-## Prerequisites
+## Requirements
 
-### Install SIPp
-
-SIPp is a performance testing tool for the SIP protocol. You need to install SIPp on your system before using the GUI. Follow the instructions on the [SIPp Sourceforge page](https://sipp.sourceforge.net/).
+- Python 3.x
+- PyQt5
+- SIPp (download from [SIPp GitHub](https://github.com/SIPp/sipp))
 
 ## Installation
 
-1. Clone this repository:
+1. **Clone the repository:**
 
-```
-git clone https://github.com/asylvestro34/SIPp_GUI.git
-cd SIPp_GUI
-```
+   ```
+   bash
+   git clone https://github.com/yourusername/sipp-gui.git
+   cd sipp-gui
+   ```
 
 2. Install the required Python package:
 
-```
-pip install PyQt5
-```
+    ```
+    pip install PyQt5
+    ```
+
+3. Ensure SIPp is installed on your system.
 
 ## Usage
 
-1. Run the 'sipp_gui.py' script:
+1. Run the application:
 
-```
-python sipp_gui.py
-```
+    ```
+    python sipp_gui.py
+    ```
 
-2. The GUI will open, and you can configure your SIPp test by filling in the required fields:
+2. Set the SIPp executable:
 
-- SIPp Executable: Path to the SIPp executable file.
-- Scenario File: Path to the XML scenario file.
-- Target SIP Server IP: IP address of the target SIP server.
-- Number of Calls: Total number of SIP calls to generate.
-- Call Rate: Rate of calls per second.
-- Additional Options: Any additional SIPp command-line options.
+    - Click on the "Browse" button next to "SIPp Executable" to select the SIPp executable. This path will be saved for future runs.
 
-3. Click the "Run SIPp" button to execute the SIPp test. The constructed SIPp command will be displayed in the console.
+3. Select a mode:
 
-## Example
+    - Choose either **Client** or **Server** mode. The interface will dynamically adjust to show relevant fields.
 
-Here's an example of how to use the SIPp GUI:
+4. Fill in the necessary fields:
 
-1. Click the "Browse" button next to "SIPp Executable" and select the SIPp executable file.
-2. Click the "Browse" button next to "Scenario File" and select your SIP scenario XML file.
-3. Enter the IP address of your target SIP server in the "Target SIP Server IP" field.
-4. Enter the total number of calls in the "Number of Calls" field.
-5. Enter the call rate (calls per second) in the "Call Rate" field.
-6. (Optional) Enter any additional SIPp command-line options in the "Additional Options" field.
-7. Click the "Run SIPp" button to start the test.
+### Client Mode Fields
+
+| Field                     | Description                              |
+|---------------------------|------------------------------------------|
+| **Target SIP Server IP**  | The IP address of the SIP server         |
+| **Number of Calls**       | Total calls to initiate (default: 1)     |
+| **Test Duration**         |                                          |
+| &nbsp;&nbsp;**Hours**     | Hours for test duration (0-24)           |
+| &nbsp;&nbsp;**Minutes**   | Minutes for test duration (0-59)         |
+| &nbsp;&nbsp;**Seconds**   | Seconds for test duration (0-59)         |
+| **QoS Value**             | DSCP options (e.g., EF, AF1, etc.)       |
+| **Additional Options**    | Any extra parameters for SIPp            |
+
+### Server Mode Fields
+
+| Field                   | Description                                |
+|-------------------------|--------------------------------------------|
+| **Monitoring Sessions** | Details for monitoring incoming SIP calls  |
 
 ## Contributing
 
