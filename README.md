@@ -67,7 +67,7 @@ Contributions are welcome! Please submit pull requests or open issues to improve
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/asylvestro34/SIPp_GUI/blob/main/LICENSE) file for details.
 
 
 
